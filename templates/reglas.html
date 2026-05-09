@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglas</title>
+</head>
+<body>
+    <form method="POST">
+
+    <p>¿Cuántas faltas permiten en el parcial?</p>
+        <select name="respuesta1" id="">
+            <option value="80">80</option>
+            <option value="70">70</option>
+            <option value="60">60</option>
+        </select>
+
+    <p>¿Cuántos minutos de tolerancia permiten?</p>
+        <select name="respuesta2" id="">
+            <option value="10">10 minutos</option>
+            <option value="7">7 minutos</option>
+            <option value="5">5 minutos</option>
+        </select>
+
+    <p>En el salón se permite sentarte encima de las mesas</p>
+        <select name="respuesta3" id="">
+            <option value="1">Verdadero</option>
+            <option value="0">Falso</option>
+        </select>
+
+    <p>Plagio o copia de trabajos, será condicionado a reprobar la materia</p>
+        <select name="respuesta4" id="">
+            <option value="1">Verdadero</option>
+            <option value="0">Falso</option>
+        </select>
+
+    <p>Cualquier desonestidad es penalizada</p>
+        <select name="respuesta5" id="">
+            <option value="1">Verdadero</option>
+            <option value="0">Falso</option>
+        </select>
+
+    <br>
+
+    <input type="checkbox" name="compromiso">
+    <label>Acepto continuar la aventura</label>
+
+    <br><br>
+
+    <button type="submit">
+        Enviar
+    </button>
+
+    <h2>{{ mensaje|safe }}</h2>
+    <h2>Necesitas al menos 2 preguntas correctas</h2>
+
+    {% if desbloqueado %}
+    <a href="/notas">
+        <button>Ir al Oráculo</button>
+    </a>
+    {% endif %}
+
+</form>
+</body>
+</html>
