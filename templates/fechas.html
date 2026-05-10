@@ -3,14 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oráculo de las Notas</title>
+    <title>Línea del tiempo</title>
 </head>
 <body>
-    <h1>Oráculo de las Notas</h1>
+    <h1>Línea del tiempo</h1>
 
     <img src="{{ url_for('static', filename='Fechas.png') }}">
 
     <form method="POST">
+
+    <h2>Necesitas al menos 2 preguntas correctas</h2>
 
     <p>¿Cuándo es el examen del primer parcial?</p>
         <select name="respuesta1" id="">
@@ -43,6 +45,15 @@
     <button type="submit">
         Enviar
     </button>
+
+    </form>
+
+    <h2>{{ mensaje|safe }}</h2>
+
+    {% if desbloqueado %}
+    <a href="/">Volver a jugar</a>
+    <h2>Haz finalizado el juego !FELICIDADES!</h2>
+    {% endif %}
 
 </body>
 </html>

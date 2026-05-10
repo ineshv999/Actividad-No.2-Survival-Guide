@@ -6,13 +6,17 @@
     <title>Reglas</title>
 </head>
 <body>
+    <h1>Reglas</h1>
+
+    <h2>Necesitas al menos 2 preguntas correctas</h2>
+
     <form method="POST">
 
     <p>¿Cuántas faltas permiten en el parcial?</p>
         <select name="respuesta1" id="">
-            <option value="80">80</option>
-            <option value="70">70</option>
-            <option value="60">60</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
         </select>
 
     <p>¿Cuántos minutos de tolerancia permiten?</p>
@@ -52,7 +56,6 @@
     </button>
 
     <h2>{{ mensaje|safe }}</h2>
-    <h2>Necesitas al menos 2 preguntas correctas</h2>
 
     {% if desbloqueado %}
     <a href="/notas">Ir al Oráculo</a>

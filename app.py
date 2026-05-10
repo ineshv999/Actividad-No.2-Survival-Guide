@@ -20,7 +20,7 @@ def reglas():
         respuesta4 = request.form['respuesta4']
         respuesta5 = request.form['respuesta5']
 
-        if respuesta1 == "80":
+        if respuesta1 == "3":
             mensaje += "Respuesta 1: Correcta <br>"
         else:
             mensaje += "Respuesta 1: Incorrecta <br>"
@@ -47,7 +47,7 @@ def reglas():
 
         correctas = 0
 
-        if respuesta1 == "80":
+        if respuesta1 == "1":
             correctas += 1
         if respuesta2 == "10":
             correctas += 1
@@ -113,11 +113,83 @@ def notas():
 
 @app.route('/skills', methods=['GET', 'POST'])
 def skills():
-    return render_template('skills.html')
+    mensaje = ""
+    desbloqueado = False
+
+    if request.method == 'POST':
+
+        respuesta1 = request.form['respuesta1']
+        respuesta2 = request.form['respuesta2']
+
+        if respuesta1 == "1":
+            mensaje += "Respuesta 1: Correcta <br>"
+        else:
+            mensaje += "Respuesta 1: Incorrecta <br>"
+
+        if respuesta2 == "4":
+            mensaje += "Respuesta 2: Correcta <br>"
+        else:
+            mensaje += "Respuesta 2: Incorrecta <br>"
+
+        correctas = 0
+
+        if respuesta1 == "1":
+            correctas += 1
+        if respuesta2 == "4":
+            correctas += 1
+
+        if correctas >= 2 and 'compromiso' in request.form:
+            desbloqueado = True
+
+    return render_template(
+        'skills.html',
+        mensaje=mensaje,
+        desbloqueado=desbloqueado
+    )
 
 @app.route('/fechas', methods=['GET', 'POST'])
 def fechas():
-    return render_template('fechas.html')
+    mensaje = ""
+    desbloqueado = False
+
+    if request.method == 'POST':
+
+        respuesta1 = request.form['respuesta1']
+        respuesta2 = request.form['respuesta2']
+        respuesta3 = request.form['respuesta3']
+
+        if respuesta1 == "1":
+            mensaje += "Respuesta 1: Correcta <br>"
+        else:
+            mensaje += "Respuesta 1: Incorrecta <br>"
+
+        if respuesta2 == "2":
+            mensaje += "Respuesta 2: Correcta <br>"
+        else:
+            mensaje += "Respuesta 2: Incorrecta <br>"
+
+        if respuesta3 == "3":
+            mensaje += "Respuesta 3: Correcta <br>"
+        else:
+            mensaje += "Respuesta 3: Incorrecta <br>"
+
+        correctas = 0
+
+        if respuesta1 == "1":
+            correctas += 1
+        if respuesta2 == "2":
+            correctas += 1
+        if respuesta3 == "3":
+            correctas += 1
+
+        if correctas >= 2 and 'compromiso' in request.form:
+            desbloqueado = True
+
+    return render_template(
+        'fechas.html',
+        mensaje=mensaje,
+        desbloqueado=desbloqueado
+    )
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -10,27 +10,22 @@
 
     <img src="{{ url_for('static', filename='Fechas.png') }}">
 
+    <h2>Necesitas al menos 2 preguntas correctas</h2>
+
     <form method="POST">
 
-    <p>¿Cuánto vale el examen del primer parcial?</p>
+    <p>¿Cuáles eran los puntos del objetivo general?</p>
         <select name="respuesta1" id="">
-            <option value="40">40%</option>
-            <option value="30">30%</option>
-            <option value="20">20%</option>
+            <option value="1">Aplicación movil o web, Internet público, API, Servicio web, Base de datos</option>
+            <option value="2">Aplicación movil o web, Internet privado, AWS, Servicio web, Tablas</option>
+            <option value="3">Aplicación movil o web, Internet público, Amazon, Servicio web, Base de datos</option>
         </select>
 
-    <p>¿Cuánto vale el examen del segundo parcial?</p>
+    <p>¿Cuántos conceptos de ReactNative se van a explicar en la materia?</p>
         <select name="respuesta2" id="">
-            <option value="40">40%</option>
-            <option value="30">30%</option>
-            <option value="20">20%</option>
-        </select>
-
-    <p>¿Cuánto vale el Proyecto Integrador del tercer parcial?</p>
-        <select name="respuesta3" id="">
-            <option value="40">40%</option>
-            <option value="50">50%</option>
-            <option value="60">60%</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="4">4</option>
         </select>
 
     <br>
@@ -47,10 +42,9 @@
     </form>
 
     <h2>{{ mensaje|safe }}</h2>
-    <h2>Necesitas al menos 2 preguntas correctas</h2>
 
     {% if desbloqueado %}
-    <a href="/skills">Ir a skills</a>
+    <a href="/fechas">Ir a fechas</a>
     {% endif %}
 
 </body>

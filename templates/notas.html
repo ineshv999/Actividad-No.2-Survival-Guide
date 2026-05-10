@@ -10,6 +10,8 @@
 
     <img src="{{ url_for('static', filename='Fechas.png') }}">
 
+    <h2>Necesitas al menos 2 preguntas correctas</h2>
+
     <form method="POST">
 
     <p>¿Cuánto vale el examen del primer parcial?</p>
@@ -47,7 +49,6 @@
     </form>
 
     <h2>{{ mensaje|safe }}</h2>
-    <h2>Necesitas al menos 2 preguntas correctas</h2>
 
     {% if desbloqueado %}
     <a href="/skills">Ir a skills</a>
