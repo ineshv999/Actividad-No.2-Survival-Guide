@@ -67,9 +67,57 @@ def reglas():
         desbloqueado=desbloqueado
     )
 
-@app.route('/notas')
+@app.route('/notas', methods=['GET', 'POST'])
 def notas():
-    return render_template('notas.html')
+    mensaje = ""
+    desbloqueado = False
+
+    if request.method == 'POST':
+
+        respuesta1 = request.form['respuesta1']
+        respuesta2 = request.form['respuesta2']
+        respuesta3 = request.form['respuesta3']
+
+        if respuesta1 == "40":
+            mensaje += "Respuesta 1: Correcta <br>"
+        else:
+            mensaje += "Respuesta 1: Incorrecta <br>"
+
+        if respuesta2 == "40":
+            mensaje += "Respuesta 2: Correcta <br>"
+        else:
+            mensaje += "Respuesta 2: Incorrecta <br>"
+
+        if respuesta3 == "50":
+            mensaje += "Respuesta 3: Correcta <br>"
+        else:
+            mensaje += "Respuesta 3: Incorrecta <br>"
+
+        correctas = 0
+
+        if respuesta1 == "40":
+            correctas += 1
+        if respuesta2 == "40":
+            correctas += 1
+        if respuesta3 == "50":
+            correctas += 1
+
+        if correctas >= 2 and 'compromiso' in request.form:
+            desbloqueado = True
+
+    return render_template(
+        'notas.html',
+        mensaje=mensaje,
+        desbloqueado=desbloqueado
+    )
+
+@app.route('/skills', methods=['GET', 'POST'])
+def skills():
+    return render_template('skills.html')
+
+@app.route('/fechas', methods=['GET', 'POST'])
+def fechas():
+    return render_template('fechas.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

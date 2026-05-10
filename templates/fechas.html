@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oráculo de las Notas</title>
+</head>
+<body>
+    <h1>Oráculo de las Notas</h1>
+
+    <img src="{{ url_for('static', filename='Fechas.png') }}">
+
+    <form method="POST">
+
+    <p>¿Cuándo es el examen del primer parcial?</p>
+        <select name="respuesta1" id="">
+            <option value="1">2 de junio</option>
+            <option value="2">3 de Junio</option>
+            <option value="3">4 de Junio</option>
+        </select>
+
+    <p>¿Cuándo inician las vacaciones de Julio?</p>
+        <select name="respuesta2" id="">
+            <option value="1">19 de Julio</option>
+            <option value="2">20 de Julio</option>
+            <option value="3">21 de Julio</option>
+        </select>
+
+    <p>¿Cuándo finaliza el cuatrimestre?</p>
+        <select name="respuesta3" id="">
+            <option value="1">15 de Agosto</option>
+            <option value="2">18 de Agosto</option>
+            <option value="3">20 de Agosto</option>
+        </select>
+
+    <br>
+
+    <input type="checkbox" name="compromiso">
+    <label>Acepto continuar la aventura</label>
+
+    <br><br>
+
+    <button type="submit">
+        Enviar
+    </button>
+
+</body>
+</html>
