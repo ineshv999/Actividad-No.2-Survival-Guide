@@ -4,48 +4,139 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skills</title>
+
+    <style>
+
+        body{
+            background-color: #f5e6dc;
+            font-family: Arial, sans-serif;
+            color: #5c4033;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .caja{
+            background-color: #fff4ee;
+            border: 3px solid #b76e79;
+            width: 60%;
+            margin: auto;
+            padding: 30px;
+        }
+
+        h1{
+            color: #b76e79;
+            text-shadow: 2px 2px #d8a48f;
+        }
+
+        h2{
+            font-size: 20px;
+        }
+
+        p{
+            font-size: 18px;
+        }
+
+        select{
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+            width: 80%;
+        }
+
+        button{
+            background-color: #d8a48f;
+            color: white;
+            border: 2px solid #b76e79;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #b76e79;
+        }
+
+        a{
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #b76e79;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        img{
+            width: 300px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #d8a48f;
+        }
+
+    </style>
+
 </head>
 <body>
-    <h1>Skills</h1>
 
-    <img src="{{ url_for('static', filename='Fechas.png') }}">
+    <div class="caja">
 
-    <h2>Necesitas al menos 2 preguntas correctas</h2>
+        <h1>Skills</h1>
 
-    <form method="POST">
+        <img src="{{ url_for('static', filename='Fechas.png') }}">
 
-    <p>¿Cuáles eran los puntos del objetivo general?</p>
-        <select name="respuesta1" id="">
-            <option value="1">Aplicación movil o web, Internet público, API, Servicio web, Base de datos</option>
-            <option value="2">Aplicación movil o web, Internet privado, AWS, Servicio web, Tablas</option>
-            <option value="3">Aplicación movil o web, Internet público, Amazon, Servicio web, Base de datos</option>
-        </select>
+        <h2>Necesitas al menos 2 preguntas correctas</h2>
 
-    <p>¿Cuántos conceptos de ReactNative se van a explicar en la materia?</p>
-        <select name="respuesta2" id="">
-            <option value="3">3</option>
-            <option value="2">2</option>
-            <option value="4">4</option>
-        </select>
+        <form method="POST">
 
-    <br>
+            <p>¿Cuáles eran los puntos del objetivo general?</p>
+            <select name="respuesta1" required>
+                <option value="">Selecciona una opción</option>
+                <option value="1">
+                    Aplicación móvil o web, Internet público, API, Servicio web, Base de datos
+                </option>
 
-    <input type="checkbox" name="compromiso">
-    <label>Acepto continuar la aventura</label>
+                <option value="2">
+                    Aplicación móvil o web, Internet privado, AWS, Servicio web, Tablas
+                </option>
 
-    <br><br>
+                <option value="3">
+                    Aplicación móvil o web, Internet público, Amazon, Servicio web, Base de datos
+                </option>
+            </select>
 
-    <button type="submit">
-        Enviar
-    </button>
+            <p>¿Cuántos conceptos de React Native se van a explicar en la materia?</p>
+            <select name="respuesta2" required>
+                <option value="">Selecciona una opción</option>
+                <option value="3">3</option>
+                <option value="2">2</option>
+                <option value="4">4</option>
+            </select>
 
-    </form>
+            <br>
 
-    <h2>Número de respuestas correctas: {{ correctas }}</h2>
+            <input type="checkbox" name="compromiso">
+            <label>Acepto continuar la aventura</label>
 
-    {% if desbloqueado %}
-    <a href="/fechas">Ir a fechas</a>
-    {% endif %}
+            <br><br>
+
+            <button type="submit">
+                Enviar
+            </button>
+
+        </form>
+
+        <h2>
+            Número de respuestas correctas: {{ correctas }}
+        </h2>
+
+        {% if desbloqueado %}
+
+            <a href="/fechas">
+                Ir a Fechas
+            </a>
+
+        {% endif %}
+
+    </div>
 
 </body>
 </html>

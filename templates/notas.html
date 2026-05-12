@@ -4,55 +4,138 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oráculo de las Notas</title>
+
+    <style>
+
+        body{
+            background-color: #f5e6dc;
+            font-family: Arial, sans-serif;
+            color: #5c4033;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        .caja{
+            background-color: #fff4ee;
+            border: 3px solid #b76e79;
+            width: 60%;
+            margin: auto;
+            padding: 30px;
+        }
+
+        h1{
+            color: #b76e79;
+            text-shadow: 2px 2px #d8a48f;
+        }
+
+        h2{
+            font-size: 20px;
+        }
+
+        p{
+            font-size: 18px;
+        }
+
+        select{
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        button{
+            background-color: #d8a48f;
+            color: white;
+            border: 2px solid #b76e79;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #b76e79;
+        }
+
+        a{
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #b76e79;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        img{
+            width: 300px;
+            margin-top: 15px;
+            margin-bottom: 20px;
+            border: 2px solid #d8a48f;
+        }
+
+    </style>
+
 </head>
 <body>
-    <h1>Oráculo de las Notas</h1>
 
-    <img src="{{ url_for('static', filename='Fechas.png') }}">
+    <div class="caja">
 
-    <h2>Necesitas al menos 2 preguntas correctas</h2>
+        <h1>Oráculo de las Notas</h1>
 
-    <form method="POST">
+        <img src="{{ url_for('static', filename='Fechas.png') }}">
 
-    <p>¿Cuánto vale el examen del primer parcial?</p>
-        <select name="respuesta1" id="">
-            <option value="40">40%</option>
-            <option value="30">30%</option>
-            <option value="20">20%</option>
-        </select>
+        <h2>Necesitas al menos 2 preguntas correctas</h2>
 
-    <p>¿Cuánto vale el examen del segundo parcial?</p>
-        <select name="respuesta2" id="">
-            <option value="40">40%</option>
-            <option value="30">30%</option>
-            <option value="20">20%</option>
-        </select>
+        <form method="POST">
 
-    <p>¿Cuánto vale el Proyecto Integrador del tercer parcial?</p>
-        <select name="respuesta3" id="">
-            <option value="40">40%</option>
-            <option value="50">50%</option>
-            <option value="60">60%</option>
-        </select>
+            <p>¿Cuánto vale el examen del primer parcial?</p>
+            <select name="respuesta1" required>
+                <option value="">Selecciona una opción</option>
+                <option value="40">40%</option>
+                <option value="30">30%</option>
+                <option value="20">20%</option>
+            </select>
 
-    <br>
+            <p>¿Cuánto vale el examen del segundo parcial?</p>
+            <select name="respuesta2" required>
+                <option value="">Selecciona una opción</option>
+                <option value="40">40%</option>
+                <option value="30">30%</option>
+                <option value="20">20%</option>
+            </select>
 
-    <input type="checkbox" name="compromiso">
-    <label>Acepto continuar la aventura</label>
+            <p>¿Cuánto vale el Proyecto Integrador del tercer parcial?</p>
+            <select name="respuesta3" required>
+                <option value="">Selecciona una opción</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+                <option value="60">60%</option>
+            </select>
 
-    <br><br>
+            <br>
 
-    <button type="submit">
-        Enviar
-    </button>
+            <input type="checkbox" name="compromiso">
+            <label>Acepto continuar la aventura</label>
 
-    </form>
+            <br><br>
 
-    <h2>Número de respuestas correctas: {{ correctas }}</h2>
+            <button type="submit">
+                Enviar
+            </button>
 
-    {% if desbloqueado %}
-    <a href="/skills">Ir a skills</a>
-    {% endif %}
+        </form>
+
+        <h2>
+            Número de respuestas correctas: {{ correctas }}
+        </h2>
+
+        {% if desbloqueado %}
+
+            <a href="/skills">
+                Ir a Skills
+            </a>
+
+        {% endif %}
+
+    </div>
 
 </body>
 </html>

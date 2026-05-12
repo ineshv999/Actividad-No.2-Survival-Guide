@@ -4,63 +4,161 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reglas</title>
+
+    <style>
+
+        body{
+            background-color: #f5e6dc;
+            font-family: Arial, sans-serif;
+            color: #5c4033;
+            text-align: center;
+            padding-top: 40px;
+        }
+
+        h1{
+            color: #b76e79;
+            font-size: 40px;
+            text-shadow: 2px 2px #d8a48f;
+        }
+
+        h2{
+            color: #8b5e5e;
+        }
+
+        .caja{
+            width: 60%;
+            margin: auto;
+            background-color: #fff4ee;
+            border: 3px solid #b76e79;
+            padding: 25px;
+        }
+
+        p{
+            font-size: 18px;
+        }
+
+        select{
+            padding: 8px;
+            font-size: 15px;
+            margin-bottom: 15px;
+            border: 2px solid #d8a48f;
+        }
+
+        button{
+            background-color: #d8a48f;
+            color: white;
+            border: 2px solid #b76e79;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #b76e79;
+        }
+
+        a{
+            display: inline-block;
+            margin-top: 20px;
+            text-decoration: none;
+            background-color: #b76e79;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .nivel{
+            font-size: 14px;
+            color: #8b5e5e;
+        }
+
+    </style>
+
 </head>
 <body>
-    <h1>Reglas</h1>
 
-    <h2>Necesitas al menos 2 preguntas correctas</h2>
+    <div class="caja">
 
-    <form method="POST">
+        <p class="nivel">
+            Nivel 2: Cámara de las Reglas
+        </p>
 
-    <p>¿Cuántas faltas permiten en el parcial?</p>
-        <select name="respuesta1" id="">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
+        <h1>Reglas</h1>
 
-    <p>¿Cuántos minutos de tolerancia permiten?</p>
-        <select name="respuesta2" id="">
-            <option value="10">10 minutos</option>
-            <option value="7">7 minutos</option>
-            <option value="5">5 minutos</option>
-        </select>
+        <h2>Necesitas al menos 2 preguntas correctas</h2>
 
-    <p>En el salón se permite sentarte encima de las mesas</p>
-        <select name="respuesta3" id="">
-            <option value="1">Verdadero</option>
-            <option value="0">Falso</option>
-        </select>
+        <form method="POST">
 
-    <p>Plagio o copia de trabajos, será condicionado a reprobar la materia</p>
-        <select name="respuesta4" id="">
-            <option value="1">Verdadero</option>
-            <option value="0">Falso</option>
-        </select>
+            <p>¿Cuántas faltas permiten en el parcial?</p>
 
-    <p>Cualquier desonestidad es penalizada</p>
-        <select name="respuesta5" id="">
-            <option value="1">Verdadero</option>
-            <option value="0">Falso</option>
-        </select>
+            <select name="respuesta1" required>
+                <option value="">Selecciona una opción</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
 
-    <br>
+            <p>¿Cuántos minutos de tolerancia permiten?</p>
 
-    <input type="checkbox" name="compromiso">
-    <label>Acepto continuar la aventura</label>
+            <select name="respuesta2" required>
+                <option value="">Selecciona una opción</option>
+                <option value="10">10 minutos</option>
+                <option value="7">7 minutos</option>
+                <option value="5">5 minutos</option>
+            </select>
 
-    <br><br>
+            <p>En el salón se permite sentarte encima de las mesas</p>
 
-    <button type="submit">
-        Enviar
-    </button>
+            <select name="respuesta3" required>
+                <option value="">Selecciona una opción</option>
+                <option value="1">Verdadero</option>
+                <option value="0">Falso</option>
+            </select>
 
-    <h2>Número de respuestas correctas: {{ correctas }}</h2>
+            <p>Plagio o copia de trabajos será condicionado a reprobar la materia</p>
 
-    {% if desbloqueado %}
-    <a href="/notas">Ir al Oráculo</a>
-    {% endif %}
+            <select name="respuesta4" required>
+                <option value="">Selecciona una opción</option>
+                <option value="1">Verdadero</option>
+                <option value="0">Falso</option>
+            </select>
 
-</form>
+            <p>Cualquier deshonestidad es penalizada</p>
+
+            <select name="respuesta5" required>
+                <option value="">Selecciona una opción</option>
+                <option value="1">Verdadero</option>
+                <option value="0">Falso</option>
+            </select>
+
+            <br><br>
+
+            <input type="checkbox" name="compromiso">
+
+            <label>
+                Acepto continuar la aventura
+            </label>
+
+            <br><br>
+
+            <button type="submit">
+                Enviar Respuestas
+            </button>
+
+        </form>
+
+        <h2>
+            Número de respuestas correctas: {{ correctas }}
+        </h2>
+
+        {% if desbloqueado %}
+
+        <a href="/notas">
+            Ir al Oráculo
+        </a>
+
+        {% endif %}
+
+    </div>
+
 </body>
 </html>

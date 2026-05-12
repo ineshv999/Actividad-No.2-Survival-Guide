@@ -22,7 +22,7 @@ def reglas():
 
         correctas = 0
 
-        if respuesta1 == "1":
+        if respuesta1 == "3":
             correctas += 1
         if respuesta2 == "10":
             correctas += 1

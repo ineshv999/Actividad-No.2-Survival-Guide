@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-
     <style>
 
         body{
@@ -17,18 +16,39 @@
 
         h1{
             color: #b76e79;
+            font-size: 45px;
+            text-shadow: 2px 2px #d8a48f;
         }
 
         p{
             font-size: 18px;
         }
 
+        .caja{
+            border: 3px solid #b76e79;
+            width: 60%;
+            margin: auto;
+            padding: 30px;
+            background-color: #fff4ee;
+        }
+
         button{
             background-color: #d8a48f;
             color: white;
-            border: none;
-            padding: 10px 20px;
+            border: 2px solid #b76e79;
+            padding: 12px 25px;
             font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color: #b76e79;
+        }
+
+        .nivel{
+            font-size: 14px;
+            margin-bottom: 20px;
+            color: #8b5e5e;
         }
 
     </style>
@@ -36,17 +56,29 @@
 </head>
 <body>
 
-    <h1>Bienvenido Aventurero</h1>
+    <div class="caja">
 
-    <p>¡Prepárate para la aventura!</p>
+        <p class="nivel">
+            Nivel 1: Inicio de la aventura
+        </p>
 
-    <p>
-        Bienvenido a la aventura de Programación Móvil
-    </p>
+        <h1>Bienvenido Aventurero</h1>
 
-    <a href="/reglas">
-        <button>Cámara de las Reglas</button>
-    </a>
+        <p>¡Prepárate para la aventura!</p>
+
+        <p>
+            Bienvenido a la aventura de Programación Móvil.
+        </p>
+
+        <br>
+
+        <a href="/reglas">
+            <button>
+                Entrar a la Cámara de las Reglas
+            </button>
+        </a>
+
+    </div>
 
 </body>
 </html>
