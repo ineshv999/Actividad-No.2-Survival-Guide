@@ -9,8 +9,8 @@ def inicio():
 @app.route('/reglas', methods=['GET', 'POST'])
 def reglas():
 
-    mensaje = ""
     desbloqueado = False
+    correctas = 0
 
     if request.method == 'POST':
 
@@ -19,31 +19,6 @@ def reglas():
         respuesta3 = request.form['respuesta3']
         respuesta4 = request.form['respuesta4']
         respuesta5 = request.form['respuesta5']
-
-        if respuesta1 == "3":
-            mensaje += "Respuesta 1: Correcta <br>"
-        else:
-            mensaje += "Respuesta 1: Incorrecta <br>"
-
-        if respuesta2 == "10":
-            mensaje += "Respuesta 2: Correcta <br>"
-        else:
-            mensaje += "Respuesta 2: Incorrecta <br>"
-
-        if respuesta3 == "0":
-            mensaje += "Respuesta 3: Correcta <br>"
-        else:
-            mensaje += "Respuesta 3: Incorrecta <br>"
-
-        if respuesta4 == "1":
-            mensaje += "Respuesta 4: Correcta <br>"
-        else:
-            mensaje += "Respuesta 4: Incorrecta <br>"
-
-        if respuesta5 == "1":
-            mensaje += "Respuesta 5: Correcta <br>"
-        else:
-            mensaje += "Respuesta 5: Incorrecta <br>"
 
         correctas = 0
 
@@ -63,35 +38,21 @@ def reglas():
 
     return render_template(
         'reglas.html',
-        mensaje=mensaje,
-        desbloqueado=desbloqueado
+        desbloqueado=desbloqueado, 
+        correctas=correctas
     )
 
 @app.route('/notas', methods=['GET', 'POST'])
 def notas():
-    mensaje = ""
+
     desbloqueado = False
+    correctas = 0
 
     if request.method == 'POST':
 
         respuesta1 = request.form['respuesta1']
         respuesta2 = request.form['respuesta2']
         respuesta3 = request.form['respuesta3']
-
-        if respuesta1 == "40":
-            mensaje += "Respuesta 1: Correcta <br>"
-        else:
-            mensaje += "Respuesta 1: Incorrecta <br>"
-
-        if respuesta2 == "40":
-            mensaje += "Respuesta 2: Correcta <br>"
-        else:
-            mensaje += "Respuesta 2: Incorrecta <br>"
-
-        if respuesta3 == "50":
-            mensaje += "Respuesta 3: Correcta <br>"
-        else:
-            mensaje += "Respuesta 3: Incorrecta <br>"
 
         correctas = 0
 
@@ -107,29 +68,20 @@ def notas():
 
     return render_template(
         'notas.html',
-        mensaje=mensaje,
+        correctas=correctas,
         desbloqueado=desbloqueado
     )
 
 @app.route('/skills', methods=['GET', 'POST'])
 def skills():
-    mensaje = ""
+    
+    correctas = 0
     desbloqueado = False
 
     if request.method == 'POST':
 
         respuesta1 = request.form['respuesta1']
         respuesta2 = request.form['respuesta2']
-
-        if respuesta1 == "1":
-            mensaje += "Respuesta 1: Correcta <br>"
-        else:
-            mensaje += "Respuesta 1: Incorrecta <br>"
-
-        if respuesta2 == "4":
-            mensaje += "Respuesta 2: Correcta <br>"
-        else:
-            mensaje += "Respuesta 2: Incorrecta <br>"
 
         correctas = 0
 
@@ -143,35 +95,20 @@ def skills():
 
     return render_template(
         'skills.html',
-        mensaje=mensaje,
+        correctas=correctas,
         desbloqueado=desbloqueado
     )
 
 @app.route('/fechas', methods=['GET', 'POST'])
 def fechas():
-    mensaje = ""
     desbloqueado = False
+    correctas = 0
 
     if request.method == 'POST':
 
         respuesta1 = request.form['respuesta1']
         respuesta2 = request.form['respuesta2']
         respuesta3 = request.form['respuesta3']
-
-        if respuesta1 == "1":
-            mensaje += "Respuesta 1: Correcta <br>"
-        else:
-            mensaje += "Respuesta 1: Incorrecta <br>"
-
-        if respuesta2 == "2":
-            mensaje += "Respuesta 2: Correcta <br>"
-        else:
-            mensaje += "Respuesta 2: Incorrecta <br>"
-
-        if respuesta3 == "3":
-            mensaje += "Respuesta 3: Correcta <br>"
-        else:
-            mensaje += "Respuesta 3: Incorrecta <br>"
 
         correctas = 0
 
@@ -187,7 +124,7 @@ def fechas():
 
     return render_template(
         'fechas.html',
-        mensaje=mensaje,
+        correctas=correctas,
         desbloqueado=desbloqueado
     )
 
